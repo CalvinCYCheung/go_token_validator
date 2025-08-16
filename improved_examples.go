@@ -3,12 +3,13 @@
 package main
 
 import (
-	"api_validator/v1/model"
 	"crypto/rsa"
 	"encoding/base64"
 	"encoding/json"
 	"fmt"
 	"math/big"
+
+	"github.com/CalvinCYCheung/go_token_validator/model"
 )
 
 // Approach 1: Interface-based with type-specific methods

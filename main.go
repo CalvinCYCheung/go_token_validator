@@ -1,6 +1,6 @@
 package main
 
-import "api_validator/v1/convertor"
+import "github.com/CalvinCYCheung/go_token_validator/convertor"
 
 func main() {
 	factory := convertor.ConvertFactory{}

@@ -1,7 +1,6 @@
 package convertor
 
 import (
-	"api_validator/v1/model"
 	"crypto/rsa"
 	"crypto/x509"
 	"encoding/base64"
@@ -9,6 +8,8 @@ import (
 	"encoding/pem"
 	"errors"
 	"math/big"
+
+	"github.com/CalvinCYCheung/go_token_validator/model"
 )
 
 type Convertor[T any] interface {
