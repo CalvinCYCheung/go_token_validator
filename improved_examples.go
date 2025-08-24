@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/CalvinCYCheung/go_token_validator/model"
+	"github.com/CalvinCYCheung/go_token_validator/internal/model"
 )
 
 // Approach 1: Interface-based with type-specific methods

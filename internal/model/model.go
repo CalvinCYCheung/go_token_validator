@@ -22,3 +22,7 @@ type PublicKeyJWK struct {
 	E   string `json:"e"`
 	Use string `json:"use"`
 }
+
+type JWKS struct {
+	Keys []PublicKeyJWK `json:"keys"`
+}
