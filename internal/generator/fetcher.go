@@ -8,6 +8,18 @@ import (
 	"github.com/CalvinCYCheung/go_token_validator/internal/model"
 )
 
+func NewPrivateKeyFetcher(
+	refreshInterval time.Duration,
+	fetch func() (*model.PrivateKeyJWK, error),
+	result chan *model.PrivateKeyJWK,
+) *PrivateKeyFetcher {
+	return &PrivateKeyFetcher{
+		fetch:  fetch,
+		ticker: time.NewTicker(refreshInterval),
+		result: result,
+	}
+}
+
 type PrivateKeyFetcher struct {
 	result chan *model.PrivateKeyJWK
 	ticker *time.Ticker

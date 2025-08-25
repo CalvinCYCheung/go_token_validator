@@ -8,6 +8,18 @@ import (
 	"github.com/CalvinCYCheung/go_token_validator/internal/model"
 )
 
+func NewValidatorBackgroundFetcher(
+	refreshInterval time.Duration,
+	fetch func() (*model.JWKS, error),
+	result chan *model.JWKS,
+) *ValidatorBackgroundFetcher {
+	return &ValidatorBackgroundFetcher{
+		fetch:  fetch,
+		ticker: time.NewTicker(refreshInterval),
+		result: result,
+	}
+}
+
 type ValidatorBackgroundFetcher struct {
 	jwks   *model.JWKS
 	fetch  func() (*model.JWKS, error)
