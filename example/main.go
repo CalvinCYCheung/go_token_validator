@@ -19,8 +19,12 @@ import (
 )
 
 func main() {
-	tokenGenerator := generator.NewTokenGenerator(15 * time.Minute)
-	validator := validator.NewRsaKeyValidator(15 * time.Minute)
+	tokenGenerator := generator.NewTokenGenerator(15*time.Minute, func() (*model.PrivateKeyJWK, error) {
+		return &model.PrivateKeyJWK{}, nil
+	})
+	validator := validator.NewRsaKeyValidator(15*time.Minute, func() (*model.JWKS, error) {
+		return &model.JWKS{}, nil
+	})
 	router := gin.Default()
 	router.POST("/token", func(ctx *gin.Context) {
 		token, err := tokenGenerator.Generate()
