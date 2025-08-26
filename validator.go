@@ -27,9 +27,8 @@ type Validator interface {
 
 func NewRsaKeyValidator(
 	refresh time.Duration,
-	fetch func() (*model.JWKS, error),
 ) *RsaKeyValidator {
-	jwks, err := fetch() // Init fetch jwks
+	jwks, err := fetchJwk() // Init fetch jwks
 	if err != nil {
 		panic(err)
 	}

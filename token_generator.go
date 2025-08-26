@@ -33,9 +33,8 @@ type TokenGeneratorImpl struct {
 
 func NewTokenGenerator(
 	refreshInterval time.Duration,
-	fetch func() (*model.PrivateKeyJWK, error),
 ) *TokenGeneratorImpl {
-	key, err := fetch()
+	key, err := fetchKey()
 	if err != nil {
 		panic(err)
 	}
